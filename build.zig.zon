@@ -1,0 +1,23 @@
+.{
+    .name = .anne_table,
+    .version = "0.0.0",
+    .minimum_zig_version = "0.15.1",
+    .fingerprint = 0x98324ebc4a6b4dab,
+    .dependencies = .{
+        .anne_benchmark = .{
+            .url = "https://github.com/AnneKitsune/anne_benchmark/archive/refs/tags/1.3.0.zip",
+            .hash = "anne_benchmark-1.3.0-DXcAMpsqAABuxYs72i_NZgsoXga6nDi9z9O6aIyRovly",
+        },
+        .anne_uuid = .{
+            .url = "https://github.com/AnneKitsune/anne_uuid/archive/refs/tags/1.1.0.zip",
+            .hash = "anne_uuid-1.1.0-m3kgIy-YAABZS2bDCyNnwfJtBa9j1nJrVNkXQBs21GOO",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "LICENSE",
+        "README.md",
+    },
+}
