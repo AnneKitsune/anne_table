@@ -50,8 +50,15 @@ for (table.valuesMut()) |value_ptr| {}
 
 # Origins
 This was invented in an attempt to keep the simplicity of a traditional bitset/vector-backed entity-component-system while improving on both speed and generality.
+
 This turned out to be significantly more general than anticipated, as it can be used for practically all aspects of software development (it's quite literally a fast in-memory database with less features).
-As for performance, it is a slight improvement over comparable rust entity-component-system such as `world_dispatcher`, `specs` and more. However, for non-comparable ECS such as `legion` and `bevy_ecs`, we are significantly behind in terms of performance. If you value raw performance more than reusability, using an archetypal ECS will be better. However, do keep in mind that since these are significantly less general, you will often move data in and out of the ECS into other structures. This is not the case here as almost all data structures can be expressed as a 3 normal form database (with often some loss of performance.)
+As for performance, it is a slight improvement over comparable rust entity-component-system such as `world_dispatcher`, `specs` and more.
+
+However, for non-comparable ECS such as `legion` and `bevy_ecs`, we are significantly behind in terms of performance. If you value raw performance more than reusability, using an archetypal ECS will be better.
+
+However, do keep in mind that since these are significantly less general, you will often move data in and out of the ECS into other structures.
+
+This is not the case here as almost all data structures can be expressed as a 3 normal form database (with often some loss of performance.)
 
 In exchange for the performance loss, you get the following:
 - One table to rule them all; writing generic code that works over any of your data is trivial. (data inspector, serialization, editor, you name it.)
