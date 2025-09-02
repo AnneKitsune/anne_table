@@ -13,7 +13,6 @@
 //!
 //! Whether this or a more performant (and complex) alternative is better is entirely project-dependent.
 
-
 const std = @import("std");
 
 const tsv = @import("tsv.zig");
@@ -210,8 +209,7 @@ test "ser/deser Table" {
     defer table.deinit(std.testing.allocator);
     _ = try table.add(std.testing.allocator, .{ .u = 5 });
 
-
-    var file = try std.fs.cwd().createFile("test_save.tsv", .{.read = true});
+    var file = try std.fs.cwd().createFile("test_save.tsv", .{ .read = true });
     defer file.close();
 
     var buf: [4096]u8 = undefined;
@@ -298,5 +296,3 @@ fn benchIterSpeed(ctx: *benchmark.Context) void {
 test "Benchmark Table join iter speed 1..1 ref" {
     benchmark.benchmark("Table join iter speed 1..1 ref", benchIterSpeed);
 }
-
-

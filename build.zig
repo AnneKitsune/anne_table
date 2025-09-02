@@ -5,8 +5,8 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     // Deps
-    const uuid = b.dependency("anne_uuid", .{.target = target, .optimize = optimize}).module("anne_uuid");
-    const bench = b.dependency("anne_benchmark", .{.target = target, .optimize = optimize}).module("anne_benchmark");
+    const uuid = b.dependency("anne_uuid", .{ .target = target, .optimize = optimize }).module("anne_uuid");
+    const bench = b.dependency("anne_benchmark", .{ .target = target, .optimize = optimize }).module("anne_benchmark");
 
     // Main mod
     const mod = b.addModule("anne_table", .{
@@ -42,4 +42,3 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     test_step.dependOn(&run_mod_tests.step);
 }
-

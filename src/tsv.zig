@@ -27,7 +27,7 @@ fn parsePrimitive(comptime ty: type, input: []const u8, allocator: std.mem.Alloc
             return try std.fmt.parseInt(ty, input, 10);
         },
         .float => return std.fmt.parseFloat(ty, input),
-        .@"bool" => {
+        .bool => {
             if (std.mem.eql(u8, input, "true")) {
                 return true;
             } else if (std.mem.eql(u8, input, "false")) {
@@ -79,7 +79,7 @@ pub fn parse(comptime ty: type, reader: *std.Io.Reader, ret: *Map(ty), allocator
         // reset the writer to the start of the buffer
         line_writer.end = 0;
         // drop the '\n' stuck in the reader
-        if(reader.peek(1)) |reader_next| {
+        if (reader.peek(1)) |reader_next| {
             if (reader_next[0] == '\n') {
                 reader.toss(1);
             }
@@ -145,7 +145,7 @@ pub fn write(comptime ty: type, input: *const Map(ty), writer: *std.Io.Writer) !
                     try writer.print("\t{}", .{v});
                     continue;
                 },
-                .@"bool" => {
+                .bool => {
                     if (v) {
                         try writer.print("\ttrue", .{});
                     } else {

@@ -1,6 +1,6 @@
 .{
     .name = .anne_table,
-    .version = "0.0.0",
+    .version = "0.1.0",
     .minimum_zig_version = "0.15.1",
     .fingerprint = 0x98324ebc4a6b4dab,
     .dependencies = .{

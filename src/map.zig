@@ -21,4 +21,3 @@ pub inline fn eq_uuid(ctx: UuidContext, a: Uuid, b: Uuid, idx: usize) bool {
 pub fn Map(comptime ty: type) type {
     return std.ArrayHashMapUnmanaged(Uuid, ty, UuidContext, false);
 }
-
